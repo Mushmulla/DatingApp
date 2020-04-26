@@ -41,14 +41,14 @@ export class RegisterComponent implements OnInit {
       country: ['', Validators.required],
       password: ['', [Validators.required, Validators.minLength(4), Validators.maxLength(8)]],
       confirmPassword: ['', Validators.required]
-    }, {validators: this.passwordMatchValidator});
+    }, {validator: this.passwordMatchValidator});
   }
 
   passwordMatchValidator(g: FormControl) {
     return g.get('password').value === g.get('confirmPassword').value ? null : {mismatch: true};
   }
   register() {
-    if(this.registerForm.valid) {
+    if (this.registerForm.valid) {
       this.user = Object.assign({}, this.registerForm.value);
       this.authService.register(this.user).subscribe(() => {
         this.alertify.success('Registration successfull');

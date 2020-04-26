@@ -32,7 +32,6 @@ namespace DatingApp.API.Controllers
             _mapper = mapper;
         }
         [HttpPost("register")]
-
         public async Task<IActionResult> Register(UserForRegisterDto userForRegisterDto)
         {
            
@@ -52,10 +51,10 @@ namespace DatingApp.API.Controllers
             return CreatedAtRoute("GetUser", new { controller = "Users", id = createdUser.Id }, userToReturn );
         }
         [HttpPost("login")]
-        public async Task<IActionResult> Login(UserForRegisterDto userForRegisterDto)
+        public async Task<IActionResult> Login(UserForLoginDto userForLoginDto)
         {
             //throw new Exception("Computer Says No");
-            var userFromRepo = await _repo.Login(userForRegisterDto.Username.ToLower(), userForRegisterDto.Password);
+            var userFromRepo = await _repo.Login(userForLoginDto.Username.ToLower(), userForLoginDto.Password);
 
             if (userFromRepo == null)
             {
