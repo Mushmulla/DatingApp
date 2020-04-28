@@ -8,6 +8,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TabsModule } from 'ngx-bootstrap/tabs';
 import { NgxGalleryModule } from '@kolkov/ngx-gallery';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { PaginationModule } from 'ngx-bootstrap';
 
 
 
@@ -77,6 +78,7 @@ export function tokenGetter() {
       BrowserModule,
       HttpClientModule,
       FormsModule,
+      PaginationModule.forRoot(),
       ReactiveFormsModule,
       BrowserAnimationsModule,
       BsDropdownModule.forRoot(),
